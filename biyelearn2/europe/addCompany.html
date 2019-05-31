@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+		<style>
+			th,
+			td {
+				/*		text-align: center;*/
+				vertical-align: middle !important;
+				border: 1px solid gainsboro;
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			input {
+				border: none;
+				overflow: hidden;
+				height: 100%;
+				width: 100%;
+			}
+			
+			textarea {
+				border: none;
+				overflow: hidden;
+				height: 100%;
+				width: 100%;
+				resize: none;
+			}
+			
+			input[type='file'] {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div style="width: 1000px;margin: 20px auto;">
+			<table class="table table-striped table-hover">
+				<form action="">
+					<tr>
+						<td colspan="5" height="50px" style="text-align: center;font-size: 30px;font-weight: bold;">
+							企业详情
+						</td>
+					</tr>
+					<tr>
+						<td width="200px" style="text-align: center;">
+							<a href="javascript:void(0)" id="selectLogo">选择logo</a>
+							<!--	<a href="javascript:void(0)" id="restateSelect">重新选择</a>-->
+							<input type="file" id="upOneImage" name="file" accept="image/*" onchange="upLoad()" />
+						</td>
+						<td width="150px">企业名称</td>
+						<td width="250px">
+							<input type="text" style="display: block;height: 100%;width: 100%;" />
+						</td>
+						<td width="100px">手机号</td>
+						<td>
+							<input type="text" />
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">
+							<img id="img" src="../img/1.jpg" height="80px" width="80px" />
+						</td>
+						<td height="50px">网址</td>
+						<td>
+							<input type="text" />
+						</td>
+						<td>邮件</td>
+						<td>
+							<input type="email" />
+						</td>
+					</tr>
+					<tr>
+						<td height="50px">国家</td>
+						<td>
+							<input type="text" />
+						</td>
+						<td>详细地址</td>
+						<td>
+							<input type="text" />
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							企业描述
+						</td>
+						<td colspan="2">
+							<textarea></textarea>
+						</td>
+						<td>主要业务</td>
+						<td>
+							猪类食品&nbsp;&nbsp;&nbsp;&nbsp; 进出口猪&nbsp;&nbsp;&nbsp;&nbsp; 鲜肉鲜肉养殖业&nbsp;&nbsp;&nbsp;&nbsp; 进出口猪肉&nbsp;&nbsp;&nbsp;&nbsp; 丹麦小猪
+						</td>
+					</tr>
+					<tr>
+						<td height="40px">
+							<a href="javascript:void(0)" id="selectCompanyImage">选择企业图片</a>
+							<input type="file" id="companyFileId" multiple="multiple" name="companyFiles" onchange="javascript:setImagePreviews(this.id);" accept="image/*" />
+						</td>
+						<td rowspan="2" colspan="4" id="companyImagesId">
+
+						</td>
+					</tr>
+					<tr>
+						<td>企业图片</td>
+					</tr>
+
+					<tr>
+						<td height="40px">
+							<a href="javascript:void(0)">选择产品图片</a>
+							<input type="file" id="productFileId" multiple="multiple" name="productFiles" onchange="javascript:setImagePreviews(this.id);" accept="image/*" />
+						</td>
+						<td rowspan="2" colspan="4" id="productImagesId">
+
+						</td>
+					</tr>
+					<tr>
+						<td>产品图片</td>
+					</tr>
+					<tr>
+						<td colspan="5" style="height: 40px;">
+							<input type="submit" />
+						</td>
+					</tr>
+				</form>
+			</table>
+		</div>
+		<script type="text/javascript">
+			/**
+			 * 单个图片上传的点击和清空
+			 */
+			/**
+			 * 触发input中file的点击事件
+			 */
+			$("#selectLogo").click(function() {
+				$(this).parent().children('.restartSelectOneLogo').remove();
+				$(this).parent().append("<a href='javascript:void(0)' class='restartSelectOneLogo'>清空已选</a>")
+				$("#upOneImage").click();
+			});
+
+			/**
+			 * 清空已经选择的input file
+			 * 实际上是曲线救国的思想，将原先的删除，重新添加一个一模一样的节点既可
+			 */
+			$(document).on('click', '.restartSelectOneLogo', function() {
+				alert("ahdfa")
+				$(this).parent().children('input').remove();
+				$(this).parent().append("<input type='file' id='upOneImage' name='file' accept='image/*' onchange='upLoad()'/>")
+				$("#img").attr("src", "fasdf");
+				$(".restartSelectOneLogo").remove();
+			});
+			/**
+			 * 企业图片上传的点击以及清空
+			 */
+			$("#selectCompanyImage").click(function() {
+				$(this).parent().children('.restartSelectCompanyImages').remove();
+				$(this).parent().append("<a href='javascript:void(0)' class='restartSelectCompanyImages'>清空已选</a>")
+				$("#companyFileId").click();
+			});
+			/**
+			 * 清空企业选择的图片，进而重新选择
+			 */
+			$(document).on('click', '.restartSelectCompanyImages', function() {
+				alert("清空企业的信息")
+				$("#companyImagesId").find("img").remove();
+				$(".restartSelectCompanyImages").remove();
+			});
+
+			/**
+			 * 单图片的预览问题
+			 */
+			function upLoad() {
+				var fileInput = document.getElementById("upOneImage");
+				var file = fileInput.files[0];
+				//创建读取文件的对象
+				var reader = new FileReader();
+				//创建文件读取相关的变量
+				var imgFile;
+				//为文件读取成功设置事件
+				reader.onload = function(e) {
+					// alert('文件读取完成');
+					imgFile = e.target.result;
+					console.log(imgFile);
+					$("#img").attr('src', imgFile);
+				};
+				//正式读取文件
+				reader.readAsDataURL(file);
+			}
+			/**
+			 * 下面的函数用于多图片的预览功能
+			 * @param {Object} avalue
+			 */
+			function setImagePreviews(inputId) {
+				var imageFatherId = $("#" + inputId).parent().next().attr("id");
+				var docObj = document.getElementById(inputId); //表单控件
+
+				var dd = document.getElementById(imageFatherId); //预览图片的父节点
+
+				dd.innerHTML = "";
+
+				var fileList = docObj.files;
+
+				for(var i = 0; i < fileList.length; i++) {
+					var imageId = imageFatherId + i;
+					dd.innerHTML += "<div style='float:left;margin:12px;' > <img id='" + imageId + "'  /> </div>";
+					var imgObjPreview = document.getElementById(imageId);
+					if(docObj.files && docObj.files[i]) {
+						//火狐下，直接设img属性
+						imgObjPreview.style.display = 'block';
+						imgObjPreview.style.width = '150px';
+						imgObjPreview.style.height = '180px';
+						//imgObjPreview.src = docObj.files[0].getAsDataURL();
+						//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+						imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+					} else {
+						//IE下，使用滤镜
+						docObj.select();
+						var imgSrc = document.selection.createRange().text;
+						alert(imgSrc)
+						var localImagId = document.getElementById("img" + i);
+						//必须设置初始大小
+						localImagId.style.width = "100px";
+						localImagId.style.height = "100px";
+						//图片异常的捕捉，防止用户修改后缀来伪造图片
+						try {
+							localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+							localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+						} catch(e) {
+							alert("您上传的图片格式不正确，请重新选择!");
+							return false;
+						}
+						imgObjPreview.style.display = 'none';
+						document.selection.empty();
+					}
+				}
+				return true;
+			}
+		</script>
+
+	</body>
+
+</html>

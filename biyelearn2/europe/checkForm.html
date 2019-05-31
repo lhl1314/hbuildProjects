@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+				<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+		
+	</head>
+	<body>
+				<div id="checkForm">
+			<form>
+				<input type="text" name="username" />
+				<br />
+				<input type="file" />
+				<br />
+				<input type="text" name="password" />
+				<br />
+				<input type="file" multiple="multiple" />
+			</form>
+			<button id="getCheckForm" onclick="checkForm()">点我</button>
+		</div>
+		<script type="text/javascript">
+			function checkForm() {
+				var input_cart = document.getElementsByTagName("input");
+
+				for(var i = 0; i < input_cart.length; i++) {
+					if(input_cart[i].value == "" || input_cart[i].value == null) {
+						alert("信息不能为空!");
+						    input_cart[i].focus();
+						    input_cart[i].value="adsfaf";
+                input_cart[i].style.background="red";
+						return(false);
+					}
+				}
+
+			}
+			
+//			$("#checkForm input").change(function(){
+//				$(this).css("background","white")
+//			})
+			$("#checkForm input").focus(function(){
+				$(this).val("");
+					$(this).css("background","white")
+			})
+		</script>
+	</body>
+</html>

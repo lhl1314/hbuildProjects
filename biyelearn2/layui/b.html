@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <link rel="stylesheet" href="layui2.45/css/layui.css" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+	<body>
+		<h1>这里是BB孙子页面</h1>
+		<button id="button">打开BB页面</button>
+		<script type="text/javascript">
+				layui.use('element', function() {
+				var element = layui.element;
+				var $ = layui.$;
+				var id = "123424";
+				var url = "bb.html";
+				var title = "这是BB页面";
+				$("#button").on("click", function() {
+					//在子页面打开父页面的选项卡
+					parent.addTableAndChangTable(url,id,title);
+				});
+			});
+		</script>
+	</body>
+</html>

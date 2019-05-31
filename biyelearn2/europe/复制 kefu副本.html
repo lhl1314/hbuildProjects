@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/kefu.css" type="text/css" />
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+		<style>
+			.content_display {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="chat_box">
+			<div class="chat_box_left">
+				<div class="chat_box_left_header">
+					<div class="header_left">
+						<img src="../img/13.jpg" />
+					</div>
+					<div class="header_right">愤怒的小蜗牛</div>
+				</div>
+				<div class="chat_box_left_reminder">
+					欧企查在线用户列表
+				</div>
+				<ul class="chat_box_left_bottom">
+					<li id="1">
+						<div class="li_left">
+							<img src="../img/2.jpg" />
+						</div>
+						<div class="li_right">
+							<span class="account">账户1</span>
+							<span class="account_accept_message">该用户接收的信息</span>
+						</div>
+					</li>
+					<li id="2">
+						<div class="li_left">
+							<img src="../img/4.jpg" />
+						</div>
+						<div class="li_right">
+							<span class="account">账户2</span>
+							<span class="account_accept_message">该用户接收的信息</span>
+						</div>
+					</li>
+					<li id="3">
+						<div class="li_left">
+							<img src="../img/5.jpg" />
+						</div>
+						<div class="li_right">
+							<span class="account">账户3</span>
+							<span class="account_accept_message">该用户接收的信息</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="chat_box_right">
+				<div class="chat_box_right_header">
+					<!--		正在与账户<span>用户一</span>的用户进行在线会话-->
+				</div>
+				<div class="chat_box_right_center">
+					<div class="1">
+
+					</div>
+					<div class="2">
+
+					</div>
+					<div class="3">
+
+					</div>
+				</div>
+				<div class="chat_box_right_bottom">
+					<textarea id="textarea"></textarea>
+					<button class="sendBtn">发送</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			/**
+			 * 指定用户的函数
+			 */
+			$('.chat_box_left_bottom li').on('click', function() {
+
+				$(".chat_box_right_header").html("");
+				$(this).addClass('bg').siblings().removeClass('bg');
+
+				var accountName = $(this).children('.li_right').children('.account').text();
+				$(".chat_box_right_header").append("正在和" + "<span></span>" + "对话")
+				$('.chat_box_right_header span').text(accountName);
+
+				var content_id = $(".bg").attr("id");
+				//content控制内容的发送
+				$("." + content_id).addClass("content").siblings().removeClass('content');
+				//content_display控制内容的显示和隐藏
+				$("." + content_id).removeClass("content_display").siblings().addClass("content_display");
+				$("#textarea").val(''); //清空textarea
+			})
+			/**
+			 * 发送消息的函数
+			 */
+			$('.sendBtn').on('click', function() {
+				var bg = $(".chat_box_left_bottom").children(".bg");
+				if(bg.length == 0) {
+					alert("请点击选择交流的账户!");
+				} else {
+					var sendMessage = $('#textarea').val();
+					var sendImage = $(".header_left").children("img").attr("src");
+					if(sendMessage == '') {
+						alert("请输入要发送的信息");
+					} else {
+						var str = '';
+						str += '<div class="sent_image_header"><img src=' + sendImage + '/></div>' +
+							'<div class="send_content">' + sendMessage + '</div>' +
+							'<div style="clear:both;">' + '</div>';
+						$('.content').append(str);
+
+						$(".bg").children(".li_right").children(".account_accept_message").text(sendMessage.substring(0, 8) + '......');
+
+						$("#textarea").val(''); //清空textarea
+						setTimeout(answers, 1000);
+						$('.content').scrollTop($('.content')[0].scrollHeight); //滑动轮直接到底部
+					}
+
+				}
+
+			});
+
+			/**
+			 * 回复消息的函数
+			 */
+			function answers() {
+				var answerImage = $(".bg").children(".li_left").children("img").attr("src");
+				var str = '生活里，有很多转瞬即逝，像在车站的告别，刚刚还相互拥抱，转眼已各自天涯。很多时候，你不懂，我也不懂，就这样，说着说着就变了，听着听着就倦了，看着看着就厌了，跟着跟着就慢了，走着走着就散了，爱着爱着就淡了，想着想着就算了。';
+				var answer = '';
+				answer += '<div class="answer_image_header"><img src=' + answerImage + '/></div>' +
+					'<div class="answer_content">' + str + '</div>' +
+					'<div style="clear:both;">' + '</div>';
+				$('.content').append(answer);
+				$('.content').scrollTop($('.content')[0].scrollHeight);
+			}
+		</script>
+	</body>
+
+</html>

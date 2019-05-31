@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="layui2.45/css/layui.css" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+		<div class="layui-tab">
+			<ul class="layui-tab-title">
+				<li class="layui-this">标题一</li>
+				<li>标题二</li>
+				<li>标题三</li>
+				<li>标题四</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">内容1</div>
+				<div class="layui-tab-item">内容2</div>
+				<div class="layui-tab-item">内容3</div>
+				<div class="layui-tab-item">内容4</div>
+			</div>
+		</div>
+		<!--
+        	作者：offline
+        	时间：2019-02-20
+        	描述：这里和bootstrap中的栅栏布局类似
+        -->
+    <div class="layui-container">  
+      常规布局（以中型屏幕桌面为例）：
+      <div class="layui-row">
+        <div class="layui-col-md9">
+          你的内容 9/12
+        </div>
+        <div class="layui-col-md3">
+          你的内容 3/12
+        </div>
+      </div>
+       
+      移动设备、平板、桌面端的不同表现：
+      <div class="layui-row">
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+          移动：6/12 | 平板：6/12 | 桌面：4/12
+        </div>
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+          移动：6/12 | 平板：6/12 | 桌面：4/12
+        </div>
+        <div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+          移动：4/12 | 平板：12/12 | 桌面：4/12
+        </div>
+        <div class="layui-col-xs4 layui-col-sm7 layui-col-md8">
+          移动：4/12 | 平板：7/12 | 桌面：8/12
+        </div>
+        <div class="layui-col-xs4 layui-col-sm5 layui-col-md4">
+          移动：4/12 | 平板：5/12 | 桌面：4/12
+        </div>
+      </div>
+    </div>
+    
+    <button class="layui-btn">一个标准的按钮</button>
+    <button class="layui-btn layui-btn-radius layui-btn-sm">一个标准的椭圆按钮</button>
+    <button class="layui-btn layui-btn-normal">百搭的按钮</button>
+    <button class="layui-btn layui-btn-warm">暖色的按钮</button>
+    <button class="layui-btn layui-btn-danger">警告的按钮</button>
+    <br />   <br />
+    <button class="layui-btn layui-btn-fluid">流体按钮（最大化适应）</button>
+    
+    <p>
+    	字体图标/注意类的先后，缺一不可，layui-icon,layui-icon-face-smile
+    <i style="font-size: 30px; color: #1E9FFF;" class="layui-icon layui-icon-face-smile"></i>   
+    </p>
+    <h1>
+    	layui的动画
+    </h1>
+   <div style="height: 100px; width: 100px;background: gray;" class="layui-anim layui-anim-rotate layui-anim-loop">
+   	这里是循环动画
+   </div>
+   
+   <h1>form表单</h1>
+   		<form class="layui-form" action="">
+			<div class="layui-form-item">
+				<label class="layui-form-label">
+					姓名
+				</label>
+				<div class="layui-input-block">
+					     <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+		</form>
+	</body>
+
+</html>

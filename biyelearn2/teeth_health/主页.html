@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>主页</title>
+		<link href="layui2.45/css/layui.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+		<style>
+			body {
+				background: gray;
+			}
+			.hasha .layui-icon {
+				display: inline-block;
+				width: 100%;
+				height: 60px;
+				line-height: 60px;
+				text-align: center;
+				border-radius: 2px;
+				font-size: 30px;
+				background-color: #F8F8F8;
+				color: #333;
+				transition: all .3s;
+				-webkit-transition: all .3s;
+			}
+			
+			.hasha li cite {
+				position: relative;
+				top: 2px;
+				display: block;
+				color: #666;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				margin: 0px 20px;
+				text-align: center;
+				font-size: 14px;
+			}
+			
+			.blue_color {
+				color: #109C8F;
+			}
+			
+			.percent_content {
+				margin-top: 30px;
+			}
+			
+			.layui-progress {
+				position: relative;
+				height: 6px;
+				border-radius: 20px;
+				background-color: #e2e2e2;
+			}
+			
+			.layui-progress .layui-progress-bar {
+				border-radius: 20px;
+			}
+			
+			.percent {
+				display: flex;
+				margin: 5px;
+			}
+			
+			.percent p:first-of-type {
+				width: 50px;
+				color: gray;
+				font-size: 25px;
+			}
+			
+			.percent p:last-of-type {
+				flex: 1;
+				text-align: right;
+				color: gray;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="hasha" style="width: 1200px;height: 600px;margin: 20px auto;background: gray;">
+			<div class="layui-row layui-col-space15">
+				<div class="layui-col-md4">
+					<div class="layui-card">
+						<div class="layui-card-header">快捷常用</div>
+						<div class="layui-card-body">
+							<ul class="layui-row layui-col-space10">
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-col-md4">
+					<div class="layui-card">
+						<div class="layui-card-header">代办事项</div>
+						<div class="layui-card-body">
+							<ul class="layui-row layui-col-space10">
+								<li class="layui-col-md6">
+									<i class="layui-icon blue_color">99</i>
+									<cite>待回复留言</cite>
+								</li>
+								<li class="layui-col-md6">
+									<a>
+										<i class="layui-icon blue_color" style="color: #109C8F;">99</i>
+										<cite>已回复评论</cite>
+									</a>
+								</li>
+								<li class="layui-col-md6">
+									<a>
+										<i class="layui-icon">66</i>
+										<cite>已发货</cite>
+									</a>
+								</li>
+								<li class="layui-col-md6">
+									<a>
+										<i class="layui-icon">44</i>
+										<cite>待发货</cite>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-md4">
+					<div class="layui-card">
+						<div class="layui-card-header">管理员信息</div>
+						<div class="layui-card-body" style="height: 175px;">
+							<table class="layui-table">
+
+								<thead>
+									<tr>
+										<th>昵称</th>
+										<th>加入时间</th>
+										<th>签名</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>贤心</td>
+										<td>2016-11-29</td>
+										<td>人生就像是一场修行</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="layui-row layui-col-space15">
+				<div class="layui-col-md8">
+					<div class="layui-card">
+						<div class="layui-card-header">数据概览</div>
+						<div class="layui-card-body">
+							<ul class="layui-row layui-col-space10">
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+								<li class="layui-col-xs3">
+									<a>
+										<i class="layui-icon layui-icon-console"></i>
+										<cite>主页</cite>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-col-md4">
+					<div class="layui-card">
+						<div class="layui-card-header">效果报告</div>
+						<div class="layui-card-body layadmin-takerates" style="height: 175px;">
+							<div class="percent_content">
+								<div class="percent">
+									<p>65%</p>
+									<p>转化率（同比日增涨）</p>
+								</div>
+								<div class="layui-progress" lay-showpercent="yes">
+									<div class="layui-progress-bar" lay-percent="65%" style="width: 65%;">
+										<!--<span class="layui-progress-text">65%</span>-->
+									</div>
+								</div>
+							</div>
+							<div class="percent_content">
+								<div class="percent">
+									<p>65%</p>
+									<p>转化率（同比日增涨）</p>
+								</div>
+								<div class="layui-progress" lay-showpercent="yes">
+									<div class="layui-progress-bar" lay-percent="65%" style="width: 65%;">
+										<!--<span class="layui-progress-text">65%</span>-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+
+</html>

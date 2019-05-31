@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			th,
+			td {
+				text-align: center;
+				vertical-align: middle !important;
+				border: 1px solid gainsboro;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<caption>纵向合并单元格</caption>
+			<!--<tr>
+				<th>班级</t>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>电话</th>
+			</tr>-->
+			<tr>
+				<td rowspan="2">601班</td>
+				<td>Jack</td>
+				<td>24</td>
+				<td>1351234567</td>
+			</tr>
+			<tr>
+				<td>Tom</td>
+				<td>22</td>
+				<td>1351234567</td>
+			</tr>
+			<!--rowspan中必须指定要合并的列数目，是两行还是三行等等-->
+
+			<td rowspan="3">602班</td>
+			<td>Rose</td>
+			<td>22</td>
+			<td>1351234567</td>
+			</tr>
+			<tr>
+				<td>张三</td>
+				<td>25</td>
+				<td>1351234567</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>25</td>
+				<td>1351234567</td>
+			</tr>
+
+		</table>
+
+		<table>
+			<tr>
+				<td>发多少</td>
+				<td>发送到</td>
+				<td>发</td>
+				<td>发</td>
+				<td>四方达</td>
+			</tr>
+			<tr>
+				<td rowspan="2">发多少</td>
+				<td>发送到</td>
+				<td>发</td>
+				<td>发</td>
+				<td>四方达</td>
+			</tr>
+			<tr>
+	<!--			<td>发多少</td>-->
+				<td>发送到</td>
+				<td>发</td>
+				<td>发</td>
+				<td>四方达</td>
+			</tr>
+		</table>
+		<style>
+			.warn{
+				height: 100px;
+				width: 100px;
+				border-radius: 50%;
+				background: goldenrod;
+			display: flex;
+	        justify-content: center;
+	        align-items: Center;
+	        font-size: 40px;
+	        color: white;
+	        font-weight: bold;
+			}
+		</style>
+		<div class="warn">
+			!
+		</div>
+	</body>
+
+	</body>
+
+</html>

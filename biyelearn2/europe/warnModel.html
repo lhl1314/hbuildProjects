@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	</head>
+
+	<body>
+		<style>
+			.warn_left{
+				width: 50%;
+				float: left;
+				text-align: right;
+			}
+			.warn_right{
+				width: 50%;
+				float: left;
+				text-align: left;
+			}
+			.warn {
+				height: 100px;
+				width: 100px;
+				border-radius: 50%;
+				background: goldenrod;
+				/*display: flex;
+				justify-content: center;
+				align-items: Center;
+				text-align: right;*/
+				font-size: 40px;
+				color: white;
+				font-weight: bold;
+			}
+			
+			.modal {
+				/*		margin: 200px auto;*/
+				/*width: 300px;
+				height: 200px;*/
+			}
+			
+			.modal .modal-body {
+				/*height: 200px;
+				width: 200px;*/
+			}
+		</style>
+		<div class="warn">
+			!
+		</div>
+		<h2>创建模态框（Modal）</h2>
+		<!-- 按钮触发模态框 -->
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	开始演示模态框
+</button>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+						<h4 class="modal-title" id="myModalLabel">
+					模态框（Modal）标题
+				</h4>
+					</div>
+					<div class="modal-body">
+						<div class="warn_left">
+						<!--<div class="warn">
+							!
+						</div>-->
+						fdsafasdfa
+						</div>
+				
+						<div class="warn_right">
+							此操作会导致该企业信息无法被用户查询到！请问您确定冻结该企业的存在状态吗？
+						</div>
+						<div style="clear: both;"></div>
+						<div class="warn_bottom">
+							<button>确定冻结</button>
+							<button>关闭</button>
+						</div>
+					</div>
+					<!--<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					提交更改
+				</button>
+			</div>-->
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+	</body>
+
+</html>

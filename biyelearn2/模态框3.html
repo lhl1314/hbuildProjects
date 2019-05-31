@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+<style>
+		.warnModal .modal-content {
+				width: 250px;
+				height: 250px;
+				margin: 0px auto;
+			}
+			/**
+			 * 模态框头的颜色
+			 */
+			.warnModal .modal-header {
+				height: 30%;
+				background: chocolate;
+			}
+			.warnModal .modal-header h4 {
+			/*	margin-bottom: 20px;*/
+				font-size: 35px;
+				color: brown;
+				font-weight: bold;
+				text-align: center;
+				padding-bottom: 10px;
+			}
+			.warnModal .modal-body {
+				height: 75%;
+				width: 100%;
+				padding: 40px;
+				text-indent: 20px;
+				font-size: 20px;
+				color: gray;
+				font-weight: bold;
+				background: blanchedalmond;
+			}
+</style>
+	</head>
+	<body>
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+		<!-- 模态框（Modal） -->
+		<div class="warnModal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">
+							!警告!
+						</h4>
+					</div>
+					<div class="modal-body">
+					<p id="dlefsdaf">这是要删除的内容</p>
+					<button id="bad">点我删除</button>
+					<button onclick="d()"></button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+	
+	<button id="showModal">
+		点我启动模态框
+	</button>
+	<script type="text/javascript">
+		
+		$("#bad").click(function(){
+			$("#dlefsdaf").remove();
+		});
+		function d(){
+				$("#dlefsdaf").remove();
+		};
+		
+		
+		
+		
+		
+		
+		$("#showModal").click(function(){
+			$('#myModal').modal('toggle');
+		});
+	</script>
+	</body>
+</html>

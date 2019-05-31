@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>阿斯顿发</title>
+		<link rel="stylesheet" href="layui2.45/css/layui.css" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+
+		<button id="button">点我父页面添加一个选项卡并且跳转过去</button>
+		<script>
+			layui.use('element', function() {
+				var element = layui.element;
+				var $ = layui.$;
+				var id = "1234";
+				var url = "b.html";
+				var title = "这是B页面";
+				$("#button").on("click", function() {
+					//在子页面打开父页面的选项卡
+					parent.addTableAndChangTable(url,id,title);
+				});
+
+				/**
+				 * 计算iframe高度
+				 */
+				function FrameWH() {
+					var h = $(window).height();
+					$("iframe").css("height", h + "px");
+				};
+			});
+		</script>
+	</body>
+
+</html>

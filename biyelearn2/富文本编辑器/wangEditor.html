@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="wangEditor-3.1.1/release/wangEditor.css" />
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+		
+	</head>
+
+	<body>
+		<div id="editor" style="width: 800px; margin: 200px auto;">
+			<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+		</div>
+<!--按照官网上的说明，js和css的这两个引用应该放在body的末尾-->
+		<script type="text/javascript" src="wangEditor-3.1.1/release/wangEditor.min.js"></script>
+		<!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+		<script type="text/javascript">
+			var E = window.wangEditor
+			var editor = new E('#editor')
+			// 或者 var editor = new E( document.getElementById('editor') )
+			editor.create();
+		</script>
+		
+	</body>
+
+</html>

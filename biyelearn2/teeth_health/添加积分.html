@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>添加积分</title>
+		<link href="layui2.45/css/layui.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+
+		<div id="addIntegration" style="margin: 20px auto;border: 1px solid black;padding: 10px; width:380px; height: 340px;">
+			<form class="layui-form" lay-filter="addIntegrationForm">
+				<!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+				<div class="layui-form-item">
+					<label class="layui-form-label">用户昵称</label>
+					<div class="layui-input-inline">
+						<input type="text" lay-verify="required" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">积分数值</label>
+					<div class="layui-input-inline">
+						<input type="text" lay-verify="required" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">产生时间</label>
+					<div class="layui-input-inline">
+						<input type="text" lay-verify="required" class="layui-input" id="test5" placeholder="yyyy-MM-dd HH:mm:ss">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">积分说明</label>
+					<div class="layui-input-inline">
+						<textarea lay-verify="required" style="resize: none;" placeholder="请输入内容" class="layui-textarea"></textarea>
+					</div>
+				</div>
+				<!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" style="width: 69%;" lay-submit lay-filter="addIntegrationformDemo">立即提交</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	
+	
+	<script type="text/javascript">
+			layui.use(['form', 'layer', 'laydate'], function() {
+				var form = layui.form;
+				var $ = layui.$;
+				var layer = layui.layer;
+				var laydate=layui.laydate;
+				//日期时间选择器
+				laydate.render({
+					elem: '#test5',
+					type: 'datetime'
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>

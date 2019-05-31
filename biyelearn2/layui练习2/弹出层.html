@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>弹出层</title>
+		<link rel="stylesheet" type="text/css" href="layui2.45/css/layui.css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+		<br />
+		<hr />
+		<button id="button1">alert</button>
+		<button id="cont1">页面层1</button>
+
+		<button id="btn">弹出按钮</button>
+
+		<script type="text/javascript">
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var $ = layui.$; //使用Jquery
+				$("#button1").click(function() {
+					layer.alert("hhaha");
+				});
+
+				$("#cont1").click(function() {
+					layer.open({
+						type: 1,
+						skin: 'demo-class',
+						content: '<div style="padding: 20px 100px;background:blue;">fasdfasdf</div>' //这里content是一个普通的String
+							,
+						area: ['500px', '300px'],
+						offset: ['100px', '50px'] //定义弹出框位置
+							,
+						btn: '关闭全部',
+						 btn: ['按钮一', '按钮二', '按钮三'],
+						btnAlign: 'r' //按钮居中
+							,
+						shade: 0 //不显示遮罩
+							,
+						yes: function() {
+							layer.closeAll();
+						}
+					});
+				});
+
+				$("#btn").click(function() {
+					layer.open({
+						anim: 3,
+						content: 'test',
+						area: ['400px', '300px'],
+						btn: ['按钮一', '按钮二', '按钮三'],
+						yes: function(index, layero) {
+							//按钮【按钮一】的回调
+						},
+						btn2: function(index, layero) {
+							//按钮【按钮二】的回调
+
+							//return false 开启该代码可禁止点击该按钮关闭
+						},
+						btn3: function(index, layero) {
+							//按钮【按钮三】的回调
+
+							//return false 开启该代码可禁止点击该按钮关闭
+						},
+						cancel: function() {
+							//右上角关闭回调
+
+							//return false 开启该代码可禁止点击该按钮关闭
+						}
+					});
+				});
+				//				layer.msg("hello")
+			});
+		</script>
+	</body>
+
+</html>

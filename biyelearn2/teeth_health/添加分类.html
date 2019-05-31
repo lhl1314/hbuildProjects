@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="layui2.45/css/layui.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+		<button id="button">点我</button>
+		<div id="formDiv" style="margin: 20px auto;border: 1px solid red;padding: 10px; width: 380px; height: 300px;">
+			<form class="layui-form" lay-filter="addForm">
+				<!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类名称</label>
+					<div class="layui-input-inline">
+						<input type="text" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类图片</label>
+					<div class="layui-input-inline">
+						<div class="layui-upload">
+							<button type="button"  class="layui-btn" style="width: 190px;" id="test1">上传logo</button>
+							<div class="layui-upload-list">
+								<img class="layui-upload-img" height="100px" width="190px" id="demo1">
+								<p id="demoText"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+		
+		
+		<script type="text/javascript">
+			layui.use(['form', 'layer', 'upload'], function() {
+				var form = layui.form;
+				var $ = layui.$;
+				var layer = layui.layer;
+				var upload = layui.upload;
+				$("#button").click(function() {
+
+					layer.open({
+						type: 1,
+						content: $('#formDiv') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+							,
+						area: ['500px', '300px']
+					});
+				});
+				//普通图片上传
+				var uploadInst = upload.render({
+					elem: '#test1',
+					url: '/upload/',
+					before: function(obj) {
+						//预读本地文件示例，不支持ie8
+						obj.preview(function(index, file, result) {
+							$('#demo1').attr('src', result); //图片链接（base64）
+						});
+					},
+					done: function(res) {
+						//如果上传失败
+						if(res.code > 0) {
+							return layer.msg('上传失败');
+						}
+						//上传成功
+					},
+					error: function() {
+						//演示失败状态，并实现重传
+						var demoText = $('#demoText');
+						demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+						demoText.find('.demo-reload').on('click', function() {
+							uploadInst.upload();
+						});
+					}
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

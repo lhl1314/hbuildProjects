@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="kindeditor/themes/default/default.css" type="text/css" />
+		<script charset="utf-8" src="../bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script charset="utf-8" src="kindeditor/kindeditor-all-min.js"></script>
+		<script charset="utf-8" src="kindeditor/lang/zh-CN.js"></script>
+	</head>
+
+	<body>
+		<textarea id="kindEditor_demo"></textarea>
+		<br />
+		<button id="button">提交</button>
+		<script type="text/javascript">
+			var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('#kindEditor_demo', {
+					resizeType: 1,
+					allowPreviewEmoticons: false,
+					allowImageUpload: true, //允许上传图片
+					allowFileManager: true, //允许对上传的图片进行管理
+					uploadJson: 'kindEditorUpload?paFileName=' + (new Date()).valueOf(), //上传图片至后台
+					afterUpload: function(date) { //图片上传完成后的逻辑操作
+						//alert(date);
+						this.sync();
+					},
+					afterCreate: function() { //是同步KindEditor的值到textarea文本框
+						this.sync();
+					},
+					afterBlur: function() { //失去焦点后，将图片同步到textarea
+						this.sync();
+					},
+					items: ['source', 'fontname', 'fontsize', '|', 'forecolor',
+						'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter',
+						'justifyright', 'insertorderedlist', 'insertunorderedlist',
+						'|', 'image', 'multiimage', 'emoticons', 'link',
+						'fullscreen', 'insertfile'
+					]
+				});
+
+			});
+			
+			
+			$("#button").click(function(){
+				alert($("#kindEditor_demo").val())
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui2.45/css/layui.css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+		<style>
+			.demo-class {
+				background: gainsboro;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="a">页面层弹窗</button>
+		<button id="b">body外的弹窗内容</button>
+		<script type="text/javascript">
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var $ = layui.$;
+				/**
+				 * 页面层弹窗
+				 */
+				$("#a").click(function() {
+					layer.open({
+						type: 1, //类型
+						content: '传入任意的文本或html', //这里content是一个普通的String
+						area: ['500px', '300px'], //宽高
+						skin: 'layui-layer-molv' //弹出框头，可自定义
+					});
+				});
+
+				$("#b").click(function() {
+					//捕获页
+					layer.open({
+						type: 1,
+						shade: false,
+						title: false, //不显示标题
+						content: $('.layer_notice'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+						cancel: function() {
+							layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', {
+								time: 5000,
+								icon: 6
+							});
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>
+<div class="layer_notice">
+	dvfadfasdfa
+</div>

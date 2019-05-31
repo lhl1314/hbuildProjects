@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui2.45/css/layui.css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+		<!--
+        	作者：offline
+        	时间：2019-02-21
+        	描述：默认的table选项卡
+        -->
+		<h1>layui的默认风格</h1>
+		<div class="layui-tab">
+			<ul class="layui-tab-title">
+				<li class="layui-this">网站设置</li>
+				<li>用户管理</li>
+				<li>权限分配</li>
+				<li>商品管理</li>
+				<li>订单管理</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">内容1</div>
+				<div class="layui-tab-item">内容2</div>
+				<div class="layui-tab-item">内容3</div>
+				<div class="layui-tab-item">内容4</div>
+				<div class="layui-tab-item">内容5</div>
+			</div>
+		</div>
+		<!--
+        	作者：offline
+        	时间：2019-02-21
+        	描述：table的简约风格
+        -->
+		<h1>layui的简约风格</h1>
+		<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+			<ul class="layui-tab-title">
+				<li class="layui-this">网站设置</li>
+				<li>用户管理</li>
+				<li>权限分配</li>
+				<li>商品管理</li>
+				<li>订单管理</li>
+			</ul>
+			<div class="layui-tab-content"></div>
+		</div>
+
+		<!--
+	作者：offline
+	时间：2019-02-21
+	描述：table的卡片风格
+-->
+		<h1>layui的卡片风格</h1>
+		<div class="layui-tab layui-tab-card">
+			<ul class="layui-tab-title">
+				<li class="layui-this">网站设置</li>
+				<li>用户管理</li>
+				<li>权限分配</li>
+				<li>商品管理</li>
+				<li>订单管理</li>
+			</ul>
+			<div class="layui-tab-content" style="height: 100px;">
+				<div class="layui-tab-item layui-show">1</div>
+				<div class="layui-tab-item">2</div>
+				<div class="layui-tab-item">3</div>
+				<div class="layui-tab-item">4</div>
+				<div class="layui-tab-item">5</div>
+				<div class="layui-tab-item">6</div>
+			</div>
+		</div>
+
+		<!--
+        	作者：offline
+        	时间：2019-02-21
+        	描述：带删除的选项卡
+        -->
+		<div class="layui-tab" lay-allowClose="true">
+			<ul class="layui-tab-title">
+				<li class="layui-this">网站设置</li>
+				<li>用户基本管理</li>
+				<li>权限分配</li>
+				<li>全部历史商品管理文字长一点试试</li>
+				<li>订单管理</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">1</div>
+				<div class="layui-tab-item">2</div>
+				<div class="layui-tab-item">3</div>
+				<div class="layui-tab-item">4</div>
+				<div class="layui-tab-item">5</div>
+				<div class="layui-tab-item">6</div>
+			</div>
+		</div>
+
+		<!--
+	作者：offline
+	时间：2019-02-21
+	描述：ID焦点定位
+-->
+<h1>带焦点定位的选项卡</h1>
+		<div class="layui-tab" lay-filter="test1">
+			<ul class="layui-tab-title">
+				<li class="layui-this" lay-id="111">文章列表</li>
+				<li lay-id="222">发送信息</li>
+				<li lay-id="333">权限分配</li>
+				<li lay-id="444">审核</li>
+				<li lay-id="555">订单管理</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">1</div>
+				<div class="layui-tab-item">2</div>
+				<div class="layui-tab-item">3</div>
+				<div class="layui-tab-item">4</div>
+				<div class="layui-tab-item">5</div>
+			</div>
+		</div>
+
+		<script>
+			//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+			layui.use('element', function() {
+				var element = layui.element;
+
+				//获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+				var layid = location.hash.replace(/^#test1=/, '');
+				element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+
+				//监听Tab切换，以改变地址hash值
+				element.on('tab(test1)', function() {
+					location.hash = 'test1=' + this.getAttribute('lay-id');
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

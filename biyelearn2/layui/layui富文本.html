@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui2.45/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../Kz.layedit/Content/css.css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+		<script src="../Kz.layedit/Content/ace/ace.js"></script>
+		    <link href="../Kz.layedit/Content/Layui-KnifeZ/css/layui.css" rel="stylesheet"/>
+    <script src="../Kz.layedit/Content/Layui-KnifeZ/layui.js"></script>
+	</head>
+
+	<body>
+		<textarea id="layeditDemo" style="display: none;"></textarea>
+		<script>
+		 layui.use(['layedit', 'layer', 'jquery'], function () {
+        var $ = layui.jquery
+            , layer = layui.layer
+            , layedit = layui.layedit;
+            layedit.set({
+            //开发者模式 --默认为false
+             devmode: true
+            //是否自动同步到textarea
+            , autoSync: true
+            //内容改变监听事件
+            , onchange: function (content) {
+                console.log(content);
+            }
+            //插入代码设置 --hide:false 等同于不配置codeConfig
+            , codeConfig: {
+                hide: true,  //是否隐藏编码语言选择框
+                default: 'javascript', //hide为true时的默认语言格式
+                encode: true //是否转义
+                ,class:'layui-code' //默认样式
+            }
+//            新增iframe外置样式和js
+//          , quote:{
+//              style: ['../Kz.layedit/Content/css.css'],
+//              //js: ['/Content/Layui-KnifeZ/lay/modules/jquery.js']
+//          }
+            //自定义样式-暂只支持video添加
+            //, customTheme: {
+            //    video: {
+            //        title: ['原版', 'custom_1', 'custom_2']
+            //        , content: ['', 'theme1', 'theme2']
+            //        , preview: ['', '/images/prive.jpg', '/images/prive2.jpg']
+            //    }
+            //}
+            //插入自定义链接
+            , customlink:{
+                title: '插入layui官网'
+                , href: 'https://www.layui.com'
+                ,onmouseup:''
+            }
+            , facePath: 'http://knifez.gitee.io/kz.layedit/Content/Layui-KnifeZ/'
+            , devmode: true
+            , videoAttr: ' preload="none" ' 
+            , tool: [
+                'html', //显示富文本源码
+                'undo', //撤销
+                'redo',//重做
+                'code', //代码
+                'strong',//加粗
+                'italic', //斜体
+                'underline', //下划线
+                'del', //删除线
+                'addhr', //水平线
+                '|',
+                'removeformat', //清楚文字样式
+                'fontFomatt',//段落格式
+                'fontfamily',//字体
+                'fontSize', //字体大小
+                'fontBackColor',//字体背景色
+                'colorpicker',//字体颜色
+                'face',//表情
+                '|', 
+                'left', //左对齐
+                'center', //居中
+                'right', //右对齐
+                '|', 
+//              'link', //链接
+//              'unlink', //清除链接
+//              'images', //多图上传
+                'image_alt', //图片alt
+//              'video',//视频
+//              'attachment',//插入附件
+//              'anchors'//添加锚点
+                , '|'
+                , 'table',//表格
+                'customlink'//自定义链接
+                , 'fullScreen',//全屏
+                'preview'//预览
+            ]
+            , height: '500px'
+        });
+        var ieditor = layedit.build('layeditDemo');
+
+    })
+		</script>
+	</body>
+
+</html>

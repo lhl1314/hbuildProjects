@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+		<style>
+			.head-img {
+				text-align: center;
+			}
+			
+			#img-upload {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--
+        	作者：offline
+        	时间：2019-02-16
+        	描述：修改file的默认样式
+        -->
+		<div class="head-img">
+			<img src="../img/1.jpg" id="my-img">
+			<input type="file" id="img-upload" />
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#my-img').click(function() {
+					$("#img-upload").click();
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="layui2.45/css/layui.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+
+		<button id="button">点我弹出框</button>
+		<div id="addUserAdmin"  style="width: 420px;margin: 0px auto;border: 1px solid red;padding: 20px;">
+			<form class="layui-form" lay-filter="addForm">
+				<!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+				<div class="layui-form-item">
+					<label class="layui-form-label">用户名</label>
+					<div class="layui-input-inline">
+						<input type="text" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">密码</label>
+					<div class="layui-input-inline">
+						<input type="text" name="password" placeholder="请输入" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">单行选择框</label>
+					<div class="layui-input-inline">
+						<select name="interest" lay-filter="aihao">
+							<option value=""></option>
+							<option value="0">写作</option>
+							<option value="1" selected="">阅读</option>
+							<option value="2">游戏</option>
+
+						</select>
+					</div>
+				</div>
+				<div class="layui-form-item" pane="">
+					<label class="layui-form-label">权限</label>
+					<div class="layui-input-block">
+						<input type="checkbox" name="like1[write]" lay-skin="primary" title="写作" checked="">
+						<input type="checkbox" name="like1[read]" lay-skin="primary" title="阅读">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="游戏" disabled="">
+						<input type="checkbox" name="like1[write]" lay-skin="primary" title="写作" checked="">
+						<input type="checkbox" name="like1[read]" lay-skin="primary" title="阅读">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="游戏" disabled="">
+					</div>
+				</div>
+				<!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+
+		<script>
+			layui.use(["form", "layer"], function() {
+				var form = layui.form;
+				var $ = layui.$;
+				var layer = layui.layer;
+				$("#button").click(function() {
+					layer.open({
+						type: 1,
+						title: '添加管理员',
+						content: $('#addUserAdmin'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+						skin: 'layui-layer-lan',
+						area: '480px'
+					});
+				});
+				//监听提交
+				form.on('submit(formDemo)', function(data) {
+					layer.alert(JSON.stringify(data.field), {
+						title: '最终的提交信息'
+					})
+					return false;
+				});
+
+				form.val("addForm", {
+					"username": "贤心" // "name": "value"
+						,
+					"password": "女",
+					"interest": "ds"
+				})
+			});
+		</script>
+	</body>
+
+</html>

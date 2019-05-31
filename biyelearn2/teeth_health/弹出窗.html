@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>弹出窗</title>
+		<link href="layui2.45/css/layui.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+		<button id="button1">弹出一个回复评论窗</button>
+		<button id="button2">弹出一个查看评论的窗口</button>
+		<div id="div1" style="background: wheat;height: 300px; width: 400px;padding: 20px;">
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">回复内容：</label>
+					<div class="layui-input-block">
+						<textarea name="content" rows="" style="height: 200px; width: 80%;resize: none;" cols=""></textarea>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit lay-filter="addReply">立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<style>
+			.adminReply {
+				margin: 10px 0px;
+				background: beige;
+				display: flex;
+				width: 280px;
+				float: right;
+			}
+			
+			.adminLeft {
+				flex: 1;
+			}
+			
+			.adminRight {
+				width: 50px;
+			}
+			
+			.clientComment {
+				margin: 10px 0px;
+				display: flex;
+				background: lavender;
+				width: 280px;
+			}
+			
+			.clientLeft {
+				width: 50px;
+			}
+			
+			.clientRight {
+				flex: 1;
+			}
+		</style>
+		<div id="div2" style="background: ghostwhite;height: 300px; width: 400px;padding: 20px;">
+			<div class="clientComment">
+				<div class="clientLeft">
+					用户：
+				</div>
+				<div class="clientRight">
+					这是客户端评论的内容 这是客户端评论的内容 这是客户端评论的内容
+				</div>
+			</div>
+			<div class="adminReply">
+				<div class="adminLeft">
+					这是右边的内容 这是右边的内容 这是右边的内容 这是右边的内容
+				</div>
+				<div class="adminRight">:管理员</div>
+			</div>
+			<div class="adminReply">
+				<div class="adminLeft">
+					这是右边的内容 这是右边的内容 这是右边的内容 这是右边的内容
+				</div>
+				<div class="adminRight">:管理员</div>
+			</div>
+			<div class="adminReply">
+				<div class="adminLeft">
+					这是右边的内容 这是右边的内容 这是右边的内容 这是右边的内容
+				</div>
+				<div class="adminRight">:管理员</div>
+			</div>
+
+		</div>
+
+		<script>
+			layui.use(['layer','form'], function() {
+				var layer = layui.layer;
+				var form=layui.form;
+				var $ = layui.$;
+				
+				//弹出回复评论的窗口
+				$("#button1").click(function() {
+					layer.msg("daf");
+					layer.open({
+						type: 1,
+						title: ['管理员回复评论', 'font-size:18px;text-align:center;font-weight:bold;'],
+						area: ['440px', '385px'],
+						content: $('#div1') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+					});
+				});
+
+				//查看评论内容以及回复内容
+				$("#button2").click(function() {
+					layer.msg("查看评论内容");
+					layer.open({
+						type: 1,
+						title: ['评论内容以及回复列表', 'font-size:18px;text-align:center;font-weight:bold;'],
+						area: ['440px', '385px'],
+						content: $('#div2') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+					});
+				});
+
+				form.on('submit(addReply)', function(data) {
+					console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+					console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+					console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+					return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

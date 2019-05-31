@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+				<script type="text/javascript" src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+	 <style type="text/css">
+	 	table{
+	 		cellpa
+	 	}
+	 	tr{
+	 		padding: 0px;
+	 		margin: 0px;
+	 	}
+	 	th,td{
+	 		margin: 0px;
+	 	    padding: 0px;
+	 	    border: 1px solid gainsboro;
+	 	    width: 60px;
+	 	}
+	 	
+	 </style>
+	</head>
+	<body>
+		<div>
+			<p color="blue">哈哈哈哈</p>
+			<p color="red">哈哈哈</p>
+			<del>哈哈</del>
+			<div style="text-decoration:line-through">哈哈哈哈</div>
+			<div style="text-decoration: underline;">噗嗤</div>
+		</div>
+		<div>
+			<table style="width: 300px;" cellpadding="0" cellspacing="0"> 
+				<tr>
+					<th>编号</th>
+					<th>性别</th>
+					<th>爱好</th>
+				</tr>
+				<tr>
+					<td> 001</td>
+					<td>男</td>
+					<td>音乐</td>
+				</tr>
+				<tr>
+					<td>001</td>
+					<td>男</td>
+					<td>音乐</td>
+				</tr>
+				<tr>
+					<td>001</td>
+					<td>男</td>
+					<td>音乐</td>
+				</tr>
+					<tr>
+					<td>005</td>
+					<td>姓名</td>
+					<td>
+						<input style="height: 100%;width: 98%;" type="text"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<script>
+			var s='<p color="red">哈哈哈</p><p color="red">哈哈哈</p><p color="red">哈哈哈</p>';
+			var ss=s.replace(/color="/g,'"color:').replace(/"color:/g,'style="color:');
+			console.log(ss)
+			var str1 = 'A@B'.replace(/@/,"$`");	
+			console.log(str1)
+		</script>
+	</body>
+</html>

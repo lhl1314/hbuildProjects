@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>添加用户</title>
+		<link href="layui2.45/css/layui.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+
+	<body>
+		<form class="layui-form" lay-filter="addForm">
+			<!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">用户名</label>
+				<div class="layui-input-inline">
+					<input type="text" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+				<label class="layui-form-label">密码</label>
+				<div class="layui-input-inline">
+					<input type="text" name="password" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">手机号</label>
+				<div class="layui-input-inline">
+					<input type="text" name="mobile" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+				<label class="layui-form-label">邮箱</label>
+				<div class="layui-input-inline">
+					<input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+
+			<div class="layui-form-item">
+				<label class="layui-form-label">角色</label>
+				<div class="layui-input-inline">
+					<select name="interest" lay-filter="aihao">
+						<option value=""></option>
+						<option value="0">写作</option>
+						<option value="1" selected="">阅读</option>
+						<option value="2">游戏</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item" pane="">
+				<label class="layui-form-label">权限</label>
+				<div class="layui-input-block">
+					<input type="checkbox" lay-filter="role" name="role1" value="1" lay-skin="primary" title="写作">
+					<input type="checkbox" lay-filter="role" name="role2" value="2" lay-skin="primary" title="阅读">
+					<input type="checkbox" lay-filter="role" name="role3" value="3" lay-skin="primary" title="游戏">
+				</div>
+				<input type="text" name="roleList" class="myRoleList" value="" />
+			</div>
+			<!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+					<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				</div>
+			</div>
+		</form>
+
+		<script>
+			layui.use('form', function() {
+				var form = layui.form;
+				var $ = layui.$;
+				form.on('submit(formDemo)', function(data) {
+					console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+					console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+					console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+					return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+				});
+　                      var arr=new Array();
+				form.on('checkbox(role)', function(data) {
+					console.log(data.elem); //得到checkbox原始DOM对象
+					console.log(data.elem.checked); //是否被选中，true或者false
+					console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+					console.log(data.othis); //得到美化后的DOM对象
+				
+					if(data.elem.checked){
+							arr.push(data.value);
+							console.log("添加的数组"+arr)
+					}else{
+						for(var i=0;i<arr.length;i++){
+							if(arr[i]==data.value){
+								arr.splice(i,1)
+							}
+						}
+	
+						console.log("删除的数组"+arr)
+						console.log(arr.toString())
+					}
+				});
+				
+				
+//				var arr = new Array()
+//arr[0] = "George"
+//arr[1] = "John"
+//arr[2] = "Thomas"
+//arr[3] = "James"
+//arr[4] = "Adrew"
+//arr[5] = "Martin"
+//
+//document.write(arr + "<br />")
+//arr.splice(2,1,"William")
+//document.write(arr + "<br />")
+
+			});
+		</script>
+	</body>
+
+</html>

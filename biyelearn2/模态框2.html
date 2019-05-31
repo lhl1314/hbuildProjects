@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+		<style>
+			
+			.confirmModal .modal-content {
+				width: 250px;
+				height: 250px;
+				margin: 200px auto;
+			}
+			
+			/**
+			 * 模态框头的颜色
+			 */
+			.confirmModal .modal-header {
+				height: 20%;
+				background: darkcyan;
+				vertical-align: middle !important;
+			}
+			
+			.confirmModal .modal-header h4 {
+				color: white;
+				text-align: center;
+				font-size: 18px;
+			}
+			/**
+			 * 模态框尾的颜色
+			 */
+			.confirmModal .modal-footer {
+				height: 20%;
+				background: yellowgreen;
+				vertical-align: middle;
+				padding-top: 7px;
+			}
+			
+			.confirmModal .modal-header h4 {
+				margin-bottom: 20px;
+			}
+			
+			.confirmModal .modal-body {
+				height: 60%;
+				width: 100%;
+			}
+			
+			.confirmModal .modal-body-left {
+				height: 100px;
+				width: 100px;
+				float: left;
+				background: goldenrod;
+				margin: 3px;
+				border-radius: 50%;
+				font-size: 60px;
+				color: red;
+				text-align: center;
+				/*vertical-align: middle !important;*/
+				font-weight: bold;
+				padding-top: 10px;
+			}
+			
+			.confirmModal .modal-body-right {
+				width: 100px;
+				float: left;
+				text-indent: 20px;
+				margin: 5px;
+				font-size: 16px;
+				color: grey;
+			}
+			
+			
+			.a:hover{
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h2>创建模态框（Modal）</h2>
+		<!-- 按钮触发模态框 -->
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+		<!-- 模态框（Modal） -->
+		<div class="confirmModal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">冻结用户</h4>
+					</div>
+					<div class="modal-body">
+						<div class="modal-body-left">
+							!
+						</div>
+						<div class="modal-body-right">
+							是否确定冻结该用户！此操作会导致该用户无法登陆本系统！
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-info" data-dismiss="modal">确认返回</button>
+						<button type="button" class="btn btn-primary btn-success">确认提交</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+
+
+<button class="a">条</button>
+<button id="active">点我触发模态框</button>
+
+<script type="text/javascript">
+	$("#active").click(function(){
+	
+	});
+	setTimeout(closeModal,1000);
+		setTimeout(closeModal,3000);
+	function closeModal(){
+				$('#myModal').modal('toggle');
+	}
+</script>
+	</body>
+
+</html>

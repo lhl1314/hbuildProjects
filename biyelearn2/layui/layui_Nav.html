@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="layui2.45/css/layui.css" />
+		<script type="text/javascript" src="layui2.45/layui.js"></script>
+	</head>
+	<body>
+		<h1>layui的导航条1</h1>
+		<ul class="layui-nav" lay-filter="">
+  <li class="layui-nav-item"><a href="layui_form.html">最新活动</a></li>
+  <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+  <li class="layui-nav-item"><a href="">大数据</a></li>
+  <li class="layui-nav-item">
+    <a href="javascript:;">解决方案</a>
+    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+      <dd><a href="layui_table.html">移动模块</a></dd>
+      <dd><a href="">后台模版</a></dd>
+      <dd><a href="">电商平台</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item"><a href="">社区</a></li>
+</ul>
+ 
+<script>
+//注意：导航 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+  
+  //…
+});
+</script>
+
+
+<h3>layui的导航2</h3>
+<ul class="layui-nav">
+  <li class="layui-nav-item">
+    <a href="">控制台<span class="layui-badge">9</span></a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="">个人中心<span class="layui-badge-dot"></span></a>
+  </li>
+  <li class="layui-nav-item">
+    <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+    <dl class="layui-nav-child">
+      <dd><a href="javascript:;">修改信息</a></dd>
+      <dd><a href="javascript:;">安全管理</a></dd>
+      <dd><a href="javascript:;">退了</a></dd>
+    </dl>
+  </li>
+</ul>
+
+
+<h1>如定义一个墨绿背景色的导航</h1>
+<ul class="layui-nav layui-bg-cyan" lay-filter="">
+  <li class="layui-nav-item"><a href="layui_form.html">最新活动</a></li>
+  <li class="layui-nav-item"><a href="">产品</a></li>
+  <li class="layui-nav-item"><a href="">大数据</a></li>
+
+</ul>      
+
+
+<h1>
+	垂直的侧边导航
+</h1>
+    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+    <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+      <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;">默认展开</a>
+        <dl class="layui-nav-child">
+          <dd><a href="javascript:;">选项1</a></dd>
+          <dd><a href="javascript:;">选项2</a></dd>
+          <dd><a href="javascript:;">跳转</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">解决方案</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">移动模块</a></dd>
+          <dd><a href="">后台模版</a></dd>
+          <dd><a href="">电商平台</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">产品</a></li>
+      <li class="layui-nav-item"><a href="">大数据</a></li>
+    </ul>
+          
+	</body>
+</html>
